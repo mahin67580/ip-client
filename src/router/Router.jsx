@@ -9,6 +9,8 @@ import Register from "../authentication/Register";
 import Login from "../authentication/Login";
 import Privateroute from "../private/Privateroute";
 import MyProfile from "../components/MyProfile";
+import Dashboard from "../pages/Dashboard";
+import AddProjects from "../pages/AddProjects";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +38,22 @@ export const router = createBrowserRouter([
                 element:
                     (<Privateroute>
                         <MyProfile></MyProfile>
+                    </Privateroute>)
+
+            },
+            {
+                path: '/dashboard',
+                element:
+                    (<Privateroute>
+                        <Dashboard></Dashboard>
+                    </Privateroute>)
+
+            },
+            {
+                path: '/addprojects',
+                element:
+                    (<Privateroute>
+                        <AddProjects></AddProjects>
                     </Privateroute>)
 
             },

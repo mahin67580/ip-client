@@ -17,6 +17,8 @@ const Navbar = () => {
     };
     const { user, logout } = use(AuthContext)
 
+    
+
     const handleLogout = () => {
 
         logout()
@@ -88,8 +90,11 @@ const Navbar = () => {
             </ul>
         </div>
 
-        {user && <NavLink to={'/myprofile'} className="btn text-base-content mr-5">My profile</NavLink>}
+        {user?.email === 'admin@gmail.com' ? (<NavLink to={'/myprofile'} className="btn text-base-content mr-5">Admin profile</NavLink>) : (<NavLink to={'/myprofile'} className="btn text-base-content mr-5">My profile</NavLink>)}
 
+        {
+            user?.email === 'admin@gmail.com' && <NavLink to={'/dashboard'} className="btn   text-base-content mr-5 hover:bg-blue-200 transition font-semibold duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">Dashboard</NavLink>
+        }
         <button
             onClick={toggleTheme}
             className="btn btn-sm btn-primary w-[100px] ml-10 lg:ml-0  mt-1"
@@ -131,10 +136,13 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 ">
+                    <ul className="menu menu-horizontal   px-1  ">
                         {
                             Links
+
                         }
+
+
 
 
                     </ul>
